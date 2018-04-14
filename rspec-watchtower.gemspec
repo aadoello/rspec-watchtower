@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "rspec/watchtower/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "rspec/watchtower"
+  spec.name          = "rspec-watchtower"
   spec.version       = WatchtowerRspec::VERSION
   spec.authors       = ["Alvaro Almagro"]
   spec.email         = ["aadoello@gmail.com"]
