@@ -2,7 +2,7 @@ module RSpec
   module Watchtower
     class TestRun
       def submit
-        uri = URI.parse("#{Config.api_url}/pipelines/#{Config.pipeline}/test_runs")
+        uri = URI.parse("#{Config.api_url}/pipelines/#{Config.pipeline}/results")
         headers = {
           'Content-Type': 'text/json',
           'Authorization': Config.api_token
