@@ -22,7 +22,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_dependency "rspec", "~> 3.0"
-  spec.add_dependency "net/http"
-  spec.add_dependency "uri"
-  spec.add_dependency "json"
 end
