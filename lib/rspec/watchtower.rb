@@ -22,5 +22,5 @@ class WatchtowerFormatter
 end
 
 RSpec::configure do |config|
-  config.formatter = WatchTowerFormatter
+  config.formatter = WatchtowerFormatter
 end
