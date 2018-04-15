@@ -1,7 +1,7 @@
 module RSpec
   module Watchtower
     class Config
-      API_URL = 'https://wtapi.herokuapp.com'
+      API_URL = ENV['WATCHTOWER_API_URL'] || 'https://wtapi.herokuapp.com'
 
       class << self
         def api_url
