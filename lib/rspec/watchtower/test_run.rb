@@ -10,7 +10,7 @@ module RSpec
 
         http = Net::HTTP.new(uri.host, uri.port)
         request = Net::HTTP::Post.new(uri.request_uri, headers)
-        request.body = current.to_json
+        request.body = self.class.current.to_json
 
         http.request(request)
       end
