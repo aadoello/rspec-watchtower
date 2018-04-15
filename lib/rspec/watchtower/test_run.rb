@@ -4,7 +4,7 @@ module RSpec
       def initialize(notification)
         @load_time = notification.load_time
         @duration = notification.duration
-        @results = notification.eaxmples.map do |e|
+        @results = notification.examples.map do |e|
           TestResult.new(e)
         end
       end
