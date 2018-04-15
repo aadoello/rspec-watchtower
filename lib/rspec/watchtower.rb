@@ -8,8 +8,21 @@ require 'rspec/watchtower/config'
 require 'rspec/watchtower/test_run'
 require 'rspec/watchtower/test_result'
 
+class CustomFormatter
+  RSpec::Core::Formatters.register self, :dump_summary
+
+  def initialize(output)
+    @output = output
+  end
+
+  def dump_summary(notification)
+    binding.pry
+  end
+end
+
 RSpec::configure do |config|
   config.include(RSpec::Watchtower)
+  config.formatter = CustomFormatter
 
   config.before(:all) do
     RSpec::Watchtower::TestRun.initialize_test_run
