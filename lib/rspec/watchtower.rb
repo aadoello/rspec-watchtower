@@ -22,6 +22,9 @@ class WatchtowerFormatter
 end
 
 RSpec::configure do |config|
+  puts "TOKEN: " + ENV['WATCHTOWER_API_TOKEN']
+  puts "PIPELINE: " + ENV['WATCHTOWER_PIPELINE']
+  puts "CONDITION: " + ENV['WATCHTOWER_API_TOKEN'] && ENV['WATCHTOWER_PIPELINE']
   watchtower_configured = ENV['WATCHTOWER_API_TOKEN'] && ENV['WATCHTOWER_PIPELINE']
   config.formatter = WatchtowerFormatter if watchtower_configured
 end
