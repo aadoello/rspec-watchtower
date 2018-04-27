@@ -1,6 +1,8 @@
 module RSpec
   module Watchtower
     class TestRun
+      attr_accessor :load_time, :duration, :results
+
       def initialize(notification)
         @load_time = notification.load_time
         @duration = notification.duration
@@ -9,18 +11,22 @@ module RSpec
         end
       end
 
+      def to_h
+        {
+          load_time: self.load_time,
+          duration: self.duration,
+          results: self.resuls.map(&:to_h)
+        }
+      end
+
       def submit
-        uri = URI.parse("#{Config.api_url}/pipelines/#{Config.pipeline}/results")
+        url = "#{Config.api_url}/pipelines/#{Config.pipeline}/results"
         headers = {
           'Content-Type': 'text/json',
           'Authorization': Config.api_token
         }
-
-        http = Net::HTTP.new(uri.host, uri.port)
-        request = Net::HTTP::Post.new(uri.request_uri, headers)
-        request.body = self.to_json
-
-        http.request(request)
+        payload = self.to_h
+        RestClient.post(url, payload, headers)
       end
     end
   end
