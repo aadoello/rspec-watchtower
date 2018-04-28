@@ -15,7 +15,7 @@ module RSpec
         {
           load_time: self.load_time,
           duration: self.duration,
-          results: self.resuls.map(&:to_h)
+          results: self.results.map(&:to_h)
         }
       end
 
