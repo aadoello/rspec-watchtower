@@ -25,7 +25,7 @@ module RSpec
           'Content-Type': 'text/json',
           'Authorization': Config.api_token
         }
-        payload = self.to_h
+        payload = self.to_h.to_json
         RestClient.post(url, payload, headers)
       end
     end
