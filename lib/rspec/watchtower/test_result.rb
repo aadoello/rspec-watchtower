@@ -7,7 +7,7 @@ module RSpec
         @title = example.description
         @full_title = example.full_description
         @location = example.location
-        @status = example.execution_result.status
+        @status = example.execution_result.status.upcase
         @run_time = example.execution_result.run_time
       end
 
